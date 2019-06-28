@@ -1,0 +1,17 @@
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.btn {
+  margin-right: 10px;
+  margin-bottom: 20px;
+  &.btn-success {
+    background-color: #13b3a4;
+    border-color: #13b3a4;
+    outline-style: none;
+  }
+  &.btn-danger {
+    background-color: #adb5bd;
+    border-color: #adb5bd;
+  }
+}

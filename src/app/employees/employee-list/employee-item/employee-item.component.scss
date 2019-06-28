@@ -1,0 +1,56 @@
+.list-group-item {
+    padding: 10px 0;
+
+    &.active {
+        background-color: #adb5bd;
+        border-color: #adb5bd;
+
+        p.list-group-item-text {
+            color: #fff;
+        }
+    }
+
+    span {
+        margin: 5px;
+    }
+
+    .btn-group {
+        padding-left: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        button {
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            outline: none;
+
+            &:hover {
+                color: #13b3a4;
+            }
+
+            .glyphicon-ok:hover:after {
+                content: 'Disactivate';
+                position: absolute;
+                margin-top: 15px;
+                background-color: #fff;
+                padding: 5px;
+                border: 1px solid #ddd;
+                z-index: 1;
+                border-radius: 4px;
+            }
+
+            .glyphicon-minus-sign:hover:after {
+                content: 'Activate';
+                position: absolute;
+                margin-top: 15px;
+                background-color: #fff;
+                padding: 5px;
+                border: 1px solid #ddd;
+                z-index: 1;
+                border-radius: 4px;
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<a routerLinkActive="active"  [routerLink]="['/employees', employeeItem.id]" class="list-group-item clearfix">
+  <div class="pull-left col-xs-9">
+    <span class="pull-left">
+      <img src="{{pathToImages+employeeItem.imageUrl}}" class="img-responsive" style="height: 50px; width: 50px;">
+    </span>
+    <div>
+      <h4 class="list-group-item-heading">{{employeeItem.name}}</h4>
+      <p class="list-group-item-text">{{employeeItem.position}}</p>
+    </div>
+  </div>
+  <div class="btn-group pull-right col-xs-3" role="group">
+    <button type="button">
+      <span class="glyphicon"
+            [ngClass]="{'glyphicon-pencil': employeeItem.active}"
+            (click)="onEditEmployee($event)"
+      ></span></button>
+    <button type="button">
+      <span class="glyphicon"
+            [ngClass]="{'glyphicon-ok': employeeItem.active, 'glyphicon-minus-sign': !employeeItem.active}"
+            (click)="onActivateEmployee($event)"
+      ></span></button>
+      <button type="button">
+      <span class="glyphicon glyphicon-remove"
+            (click)="onDeleteEmployee($event, employeeItem.id)"
+      ></span></button>
+  </div>
+</a>

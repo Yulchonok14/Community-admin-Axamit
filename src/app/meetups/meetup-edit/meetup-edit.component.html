@@ -1,0 +1,175 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="meetupForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="btn btn-success" [ngStyle]="{'display': editMode ? 'none' : 'inline-block'}" [disabled]="!meetupForm.valid">Save</button>
+                    <button class="btn btn-success" [ngStyle]="{'display': !editMode ? 'none' : 'inline-block'}" [disabled]="!meetupForm.valid">Update</button>
+                    <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="meetupName">Name</label>
+                        <input type="text" id="meetupName" class="form-control" formControlName="meetupName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="meetupDate">Date</label>
+                        <input type="text" id="meetupDate" class="form-control" formControlName="meetupDate">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="meetupTime">Time</label>
+                        <input type="text" id="meetupTime" class="form-control" formControlName="meetupTime">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="meetupLocation">Location</label>
+                        <input type="text" id="meetupLocation" class="form-control" formControlName="meetupLocation">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="meetupAddress">Address</label>
+            <textarea rows="2" type="text" id="meetupAddress" class="form-control"
+                      formControlName="meetupAddress"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="meetupDescr">Description</label>
+            <textarea rows="5" type="text" id="meetupDescr" class="form-control"
+                      formControlName="meetupDescr"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" formArrayName="meetupImages">
+                    <label>Images</label>
+
+                    <div *ngFor="let imageCtrl of getControls('meetupImages'); let i = index"
+                         class="row"
+                         style="margin: 10px;"
+                         [formGroupName]="i"
+                    >
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label for="imageTitle">Title</label>
+                                    <input id="imageTitle" type="text" class="form-control"
+                                           formControlName="imageTitle">
+                                </div>
+                                <div class="col-xs-12" style="margin-bottom: 10px;">
+                                    <label for="imageURL">URL</label>
+                                    <input id="imageURL" type="text" class="form-control" #imagePath
+                                           formControlName="imageURL">
+                                </div>
+                                <div class="col-xs-12">
+                                    <img
+                                        *ngIf="imagePath.value"
+                                        [src]="pathToImages+imagePath.value"
+                                        alt="not found"
+                                        class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-danger" (click)="onRemoveImage(i)">x</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button class="btn btn-success" type="button" (click)="onAddImageURL()">Add Image</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" formArrayName="meetupSpeakers">
+                    <label>Speakers</label>
+
+                    <div *ngFor="let speakerCtrl of getControls('meetupSpeakers'); let i = index"
+                         class="row"
+                         style="margin: 10px;"
+                         [formGroupName]="i"
+                    >
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <img [src]="getImageUrl(speaker.value)" alt="" class="img-responsive">
+                                </div>
+                                <div class="col-xs-9">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label>Speaker:</label>
+                                                <select class="form-control" formControlName="employeeId" #speaker>
+                                                    <option
+                                                        *ngFor="let employee of employeeArr"
+                                                        [value]="employee.id"
+                                                    >
+                                                        {{employee.name}} | {{employee.position}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label>Report name:</label>
+                                                <textarea rows="2" class="form-control"
+                                                          formControlName="reportName"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label>Report headline:</label>
+                                                <textarea rows="5" class="form-control"
+                                                          formControlName="reportHeadline"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label>file URL:</label>
+                                                <input class="form-control" formControlName="fileURL">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label>video URL:</label>
+                                                <input class="form-control" formControlName="videoURL">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-danger" type="button" (click)="onDeleteSpeaker(i)">x</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button class="btn btn-success" type="button" (click)="onAddSpeaker()">Add Speaker</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

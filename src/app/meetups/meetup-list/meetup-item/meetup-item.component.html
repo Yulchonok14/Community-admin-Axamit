@@ -1,0 +1,13 @@
+<a routerLinkActive="active" [routerLink]="['/meetups', meetupItem.id]" (click)="chosenMeetup.emit()" class="list-group-item clearfix">
+  <div class="pull-left col-xs-10">
+    <div>
+      <h4 class="list-group-item-heading">{{meetupItem.name}}</h4>
+      <p class="list-group-item-text">{{meetupItem.date}}</p>
+      <p class="list-group-item-text">{{meetupItem.fullLocation}}</p>
+    </div>
+  </div>
+  <div class="btn-group pull-right col-xs-2" role="group">
+    <button type="button"><span class="glyphicon glyphicon-pencil" (click)="onEditMeetup($event)"></span></button>
+    <button type="button"><span class="glyphicon glyphicon-remove" (click)="onDeleteMeetup($event)"></span></button>
+  </div>
+</a>

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img
+        [src]="pathToImages+employeeItem.imageUrl"
+        alt="{{employeeItem.name}}"
+        class="img-responsive"
+        style="height: 150px">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    Active: <span class="glyphicon" [ngClass]="{'glyphicon-ok': employeeItem.active, 'glyphicon-remove': !employeeItem.active}"></span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{employeeItem.name}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{employeeItem.position}}
+  </div>
+</div>
+

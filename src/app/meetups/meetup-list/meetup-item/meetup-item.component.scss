@@ -1,0 +1,37 @@
+.list-group-item {
+  padding: 10px 0;
+
+  .list-group-item-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &.active {
+    background-color: #adb5bd;
+    border-color: #adb5bd;
+
+    p.list-group-item-text {
+      color: #fff;
+    }
+  }
+
+  span {
+    margin: 5px;
+  }
+
+  .btn-group {
+    padding-left: 0;
+
+    button {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      outline: none;
+
+      &:hover {
+        color: #13b3a4;
+      }
+    }
+  }
+}

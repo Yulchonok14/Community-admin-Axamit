@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewMeetup()">New Meetup</button>
+  </div>
+</div>
+<hr>
+<div class="col-md-12">
+  <div *ngFor="let item of meetupList">
+    <app-meetup-item
+            [meetupItem]="item"
+            (deleteMeetup)="onDeleteMeetup(item.id)"
+            (chosenMeetup)="this.chosenMeetup = item.id"
+    ></app-meetup-item>
+  </div>
+</div>

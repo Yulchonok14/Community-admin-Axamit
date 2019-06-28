@@ -1,0 +1,11 @@
+.navbar-default .navbar-nav>.active>a {
+  color: #fff;
+  background-color: #13b3a4;
+}
+
+.nav.navbar-nav.navbar-right a {
+    cursor: pointer;
+    &:hover {
+        color: #13b3a4;
+    }
+}

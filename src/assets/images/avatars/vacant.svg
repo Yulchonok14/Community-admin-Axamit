@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" version="1.1" viewBox="0 0 67.733328 67.733331" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="a" x="-.024" y="-.024" width="1.048" height="1.048" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="2.56"/>
+  </filter>
+ </defs>
+ <g transform="translate(-4.6869,-229.12)">
+  <rect x="4.6869" y="229.12" width="67.732" height="67.732" fill="#ccc"/>
+  <path transform="matrix(.26458 0 0 .26458 4.6869 229.12)" d="m-10-9.9961v276h276v-276zm138 9.9961a128 128 0 0 1 128 128 128 128 0 0 1 -128 128 128 128 0 0 1 -128 -128 128 128 0 0 1 128 -128z" fill="#fff"/>
+  <path transform="matrix(.26458 0 0 .26458 4.6869 229.12)" d="m0 0v128a128 128 0 0 1 128 -128zm128 0a128 128 0 0 1 128 128v-128zm128 128a128 128 0 0 1 -128 128h128zm-128 128a128 128 0 0 1 -128 -128v128z" fill="#fff" filter="url(#a)"/>
+ </g>
+</svg>

@@ -1,0 +1,18 @@
+<div class="s-entry">
+  <div class="s-col s-col--avatar">
+    <div class="s-avatar">
+      <img alt="{{employeeItem.name}} {{employeeItem.position}}" title="{{employeeItem.name}} {{employeeItem.position}}" src="../../../assets{{employeeItem.imageUrl}}">
+    </div>
+  </div>
+  <div class="s-col s-col--description">
+
+    <div class="s-row">
+      <span class="s-topic">{{speakerItem.nameReport}}</span>
+      <span class="s-name">{{employeeItem.name}} | <span class="s-position">{{employeeItem.position}}</span></span>
+      <span class="s-info">{{speakerItem.headlineReport}}</span>
+    </div>
+    <div *ngIf="speakerItem.fileUrl" class="s-pdf"><a class="s-link-pdf" href="../../../assets{{speakerItem.fileUrl}}" download=""><img src="../../../assets/pdf/pdf.png"><span translate>pdfReference</span></a></div>
+    <div *ngIf="speakerItem.videoUrl" class="s-youtube"><a class="s-link-youtube" href="{{speakerItem.videoUrl}}" target="_blank" rel="noopener"><img src="../../../assets/images/photo/youtube.png"><span translate>videoReference</span></a></div>
+
+  </div>
+</div>

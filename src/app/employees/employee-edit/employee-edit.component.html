@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button
+                        *ngIf="!editMode"
+                        class="btn btn-success"
+                        type="submit"
+                        [disabled]="!employeeForm.valid"
+                    >Save
+                    </button>
+                    <button
+                        *ngIf="editMode"
+                        class="btn btn-success"
+                        type="submit"
+                        [disabled]="!employeeForm.valid"
+                    >Update
+                    </button>
+                    <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Active: </label>
+              <span
+                  *ngIf="editMode"
+                  class="glyphicon"
+                  [ngClass]="{'glyphicon-ok': item.active, 'glyphicon-remove': !item.active}">
+              </span>
+                        <span *ngIf="!editMode" class="glyphicon glyphicon-ok"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" formControlName="name">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="position">Position</label>
+                        <input type="text" id="position" class="form-control" formControlName="position">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="image">Image URL</label>
+                        <div class="choose-file-group">
+                            <input
+                                fileUpload
+                                [input]="fileName"
+                                [value]="fileName"
+                                #imagePath
+                                type="text"
+                                id="image"
+                                class="form-control"
+                                formControlName="imagePath">
+                            <button class="file-open" (click)="onChooseFile($event)">
+                                <span
+                                    class="glyphicon glyphicon-folder-open">
+                                </span>
+                            </button>
+                            <input
+                                id="file-input"
+                                type="file"
+                                style="display: none;"
+                                ng2FileSelect
+                                [uploader]="uploader"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--<div class="col-xs-12">
+                    <img
+                        *ngIf="imagePath.value"
+                        [src]="pathToImages+imagePath.value"
+                        alt="not found"
+                        class="img-responsive"
+                        style="width: 150px;">
+                </div>-->
+            </div>
+        </form>
+    </div>
+</div>
